@@ -7,7 +7,8 @@ angular.module( 'theSeatWaiter', [
     'theSeatWaiter.filters',
     'theSeatWaiter.services',
     'theSeatWaiter.directives',
-    'theSeatWaiter.controllers'
+    'theSeatWaiter.controllers',
+    'firebase'
 ] ).config( ['$routeProvider', function( $routeProvider ) {
       $routeProvider.when( '/', {
         templateUrl: 'views/landing_page.html',

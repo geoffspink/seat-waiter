@@ -1,15 +1,60 @@
-<form class="form-inline" role="form">
+<form ng-submit="saveParty()" class="form-inline" role="form">
   <div class="form-group">
     <label class="sr-only" for="partyName">Party Name</label>
-    <input type="text" class="form-control" id="partyName" placeholder="Enter party name">
+    <input ng-model="newParty.name" type="text" class="form-control" id="partyName" placeholder="Enter party name">
   </div>
   <div class="form-group">
     <label class="sr-only" for="phoneNumber">Mobile Phone Number</label>
-    <input type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
+    <input ng-model="newParty.phone" type="text" class="form-control" id="phoneNumber" placeholder="Enter phone number">
   </div>
   <div class="form-group">
     <label class="sr-only" for="sizeOfParty">Size of Party</label>
-    <input type="text" class="form-control" id="sizeOfParty" placeholder="Size of party">
+    <input ng-model="newParty.size" type="text" class="form-control" id="sizeOfParty" placeholder="Size of party">
   </div>
   <button type="submit" class="btn btn-primary btn-md">Add party</button>
 </form>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Done?</th>
+        <th>Information</th>
+        <th>Notified?</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tr ng-repeat="party in parties | orderByPriority">
+      <td><input type="checkbox" /></td>
+      <td>
+        <div ng-if="party.size == 1">
+          <strong>
+            {{ party.name }} ({{ party.size }} person)
+          </strong>
+        </div>
+        <div ng-if="party.size > 1">
+          <strong>
+            {{ party.name }} ({{ party.size }} people)
+          </strong>
+        </div>
+        <div>
+          {{ party.phone }}
+        </div>
+        <div>
+          <!-- TODO: Add date and time -->
+        </div>
+      </td>
+      <td>
+        <div>
+          <!-- TODO: Add party.notified -->
+        </div>
+      </td>
+      <td>
+        <div>
+          <button ng-click="sendSMS(party.phone)" type="button" class="btn btn-success btn-md">Notify by SMS</button>
+          <button ng-click="parties.$remove(party.$id)" type="button" class="btn btn-danger btn-md">Remove</button>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

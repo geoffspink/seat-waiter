@@ -4,6 +4,10 @@ body {
   padding-top: 80px;
 }
 
+.container form {
+  padding-bottom: 20px;
+}
+
 .landing-page-intro {
   padding: 40px 15px;
   text-align: center;

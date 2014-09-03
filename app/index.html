@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="waitAndEatApp">
+<html lang="en" ng-app="theSeatWaiter">
 <head>
   <meta charset="utf-8">
   <title>The Seat Waiter</title>
@@ -38,8 +38,15 @@
     <!-- Main content that changes based on routes -->
     <div ng-view class="container"></div>
 
+  <!-- AngularJS -->
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-route.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/1.0.15/firebase.js"></script>
+  <!-- AngularFire Library -->
+  <script src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.min.js"></script>
+
+  <!-- Custom JS files -->
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
